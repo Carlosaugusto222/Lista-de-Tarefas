@@ -82,7 +82,7 @@ form.addEventListener('submit', (evento) => {
     const taskTitle = taskTitleInput.value;
     
     if (taskTitle.length < 3) {
-        alert('Task title must be at least 3 characters long');
+        alert('O título deve conter 3 ou mais caracteres');
         return;
     }
     
