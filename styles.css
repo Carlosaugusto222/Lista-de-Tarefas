@@ -263,3 +263,21 @@ main {
         padding-top: 20px; /* Adiciona um espaçamento no topo */
     }
 }
+/* Estilos para o botão de Sair */
+#logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0.5rem 1rem;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logout-button:hover {
+    background-color: #cc0000;
+  }
