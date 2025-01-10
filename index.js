@@ -100,3 +100,7 @@ form.addEventListener('submit', (evento) => {
     
     taskTitleInput.value = '';
 });
+// Redirecionar para a página de login ao clicar no botão "Sair"
+document.getElementById('logout-button').addEventListener('click', () => {
+    window.location.href = 'login.html'; // Altere para o caminho correto da sua página de login
+  });
