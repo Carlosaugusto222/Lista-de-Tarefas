@@ -5,68 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css">
     <title>Lista de tarefas</title>
-    <style>
-      /* Estilos para o carrossel de palavras */
-      .carrossel {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: -1; /* Coloca o carrossel atrás do conteúdo */
-        font-size: 4rem; /* Tamanho maior do texto */
-        font-weight: bold;
-        color: rgba(0, 0, 0, 0.1); /* Texto mais claro */
-        text-align: center;
-      }
-      .palavra {
-        opacity: 0;
-        position: absolute;
-        transition: opacity 1s ease-in-out;
-      }
-      .palavra.visivel {
-        opacity: 1;
-      }
-
-      /* Estilos para o conteúdo principal */
-      main {
-        position: relative;
-        z-index: 1; /* Garante que o conteúdo fique acima do carrossel */
-        background-color: transparent; /* Fundo transparente */
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 500px;
-        margin: 0 auto;
-      }
-
-      /* Estilos para a lista de tarefas */
-      #todo-list {
-        list-style-type: none;
-        padding: 0;
-      }
-      #todo-list li {
-        background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
-        padding: 10px;
-        margin: 5px 0;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-    </style>
   </head>
   <body>
-    <!-- Carrossel de palavras como background -->
-    <div class="carrossel">
-      <span class="palavra visivel">Criatividade</span>
-      <span class="palavra">Inovação</span>
-      <span class="palavra">Simplicidade</span>
-      <span class="palavra">Eficiência</span>
-    </div>
+    <!-- Botão de Sair -->
+    <header>
+      <button id="logout-button">Sair</button>
+    </header>
 
-    <header></header>
     <main>
+      <!-- Carrossel de palavras -->
+      <div class="carrossel">
+        <span class="palavra visivel">Criatividade</span>
+        <span class="palavra">Inovação</span>
+        <span class="palavra">Simplicidade</span>
+        <span class="palavra">Eficiência</span>
+      </div>
+
       <h1>Lista de Tarefas</h1>
       <form id="todo-form">
         <input
@@ -75,9 +29,6 @@
           placeholder="Informe a sua terefa"
         />
         <button type="submit" id="add-task-button">Adicionar</button>
-        <br>
-        <br>
-        <br>
         <section>
           <ul id="todo-list"></ul>
         </section>
