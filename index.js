@@ -1,31 +1,39 @@
+// Código do carrossel de palavras
+const palavras = document.querySelectorAll('.palavra');
+let indiceAtual = 0;
+
+function mostrarProximaPalavra() {
+  palavras[indiceAtual].classList.remove('visivel');
+  indiceAtual = (indiceAtual + 1) % palavras.length;
+  palavras[indiceAtual].classList.add('visivel');
+}
+
+setInterval(mostrarProximaPalavra, 2000); // Altera a palavra a cada 2 segundos
+
+// Código da lista de tarefas
 const form = document.querySelector('#todo-form');
 const taskTitleInput = document.querySelector('#task-title-input');
 const todoListUl = document.querySelector('#todo-list');
 let tasks = [];
 
-// Função para renderizar uma tarefa no HTML
 function renderTaskOnHTML(taskTitle, done = false) {
     const li = document.createElement('li');
     
-    // Criar checkbox
     const input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     input.checked = done;
     
-    // Adicionar evento ao checkbox
     input.addEventListener('change', (evento) => {
         const liToToggle = evento.target.parentElement;
         const spanToggle = liToToggle.querySelector('span');
         const done = evento.target.checked;
         
-        // Atualizar estilo
         if (done) {
             spanToggle.style.textDecoration = 'line-through';
         } else {
             spanToggle.style.textDecoration = 'none';
         }
         
-        // Atualizar estado no array tasks
         tasks = tasks.map((task) => {
             if (task.title === spanToggle.textContent) {
                 return {
@@ -36,18 +44,15 @@ function renderTaskOnHTML(taskTitle, done = false) {
             return task;
         });
         
-        // Salvar no localStorage
         localStorage.setItem('tasks', JSON.stringify(tasks));
     });
     
-    // Criar span com o título
     const span = document.createElement('span');
     span.textContent = taskTitle;
     if (done) {
         span.style.textDecoration = 'line-through';
     }
     
-    // Criar botão de deletar
     const button = document.createElement('button');
     button.textContent = 'Delete';
     button.addEventListener('click', (evento) => {
@@ -58,14 +63,12 @@ function renderTaskOnHTML(taskTitle, done = false) {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     });
     
-    // Montar e adicionar o li
     li.appendChild(input);
     li.appendChild(span);
     li.appendChild(button);
     todoListUl.appendChild(li);
 }
 
-// Carregar tarefas do localStorage quando a página carregar
 window.addEventListener('load', () => {
     const tasksOnLocalStorage = localStorage.getItem('tasks');
     if (tasksOnLocalStorage) {
@@ -76,7 +79,6 @@ window.addEventListener('load', () => {
     }
 });
 
-// Adicionar nova tarefa
 form.addEventListener('submit', (evento) => {
     evento.preventDefault();
     const taskTitle = taskTitleInput.value;
@@ -86,19 +88,15 @@ form.addEventListener('submit', (evento) => {
         return;
     }
     
-    // Adicionar nova tarefa ao array
     const newTask = {
         title: taskTitle,
         done: false
     };
     tasks.push(newTask);
     
-    // Salvar no localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
     
-    // Renderizar na tela
     renderTaskOnHTML(taskTitle, false);
     
-    // Limpar input
     taskTitleInput.value = '';
 });
