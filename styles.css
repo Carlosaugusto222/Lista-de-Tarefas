@@ -126,7 +126,7 @@ input:focus {
     transform: translateY(0);
 }
 
-/* ListaListaListaListaLista */
+/* Lista */
 section {
     width: 100%;
     margin-top: 2rem;
@@ -239,3 +239,68 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+/* Estilos para o carrossel de palavras */
+.carrossel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; /* Coloca o carrossel atrás do conteúdo */
+    font-size: 4rem; /* Tamanho maior do texto */
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.1); /* Texto mais claro */
+    text-align: center;
+  }
+  
+  .palavra {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .palavra.visivel {
+    opacity: 1;
+  }
+  
+  /* Estilos para o conteúdo principal */
+  main {
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique acima do carrossel */
+    background-color: transparent; /* Fundo transparente */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para a lista de tarefas */
+  #todo-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #todo-list li {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Media query para telas pequenas (até 768px) */
+  @media (max-width: 768px) {
+    .carrossel {
+      font-size: 3rem; /* Reduz o tamanho da fonte */
+      align-items: flex-start; /* Alinha o carrossel mais para cima */
+      padding-top: 20px; /* Adiciona um espaçamento no topo */
+    }
+  
+    main {
+      padding-top: 150px; /* Aumenta o espaçamento no topo para evitar sobreposição */
+    }
+  }
